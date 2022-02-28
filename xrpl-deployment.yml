@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: xrpl-deployment
+spec:
+  selector:
+    matchLabels:
+      app: xrpl
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: xrpl
+    spec:
+      containers:
+      - name: xrpl
+        image: swapnil0307/xrplswapimage:v1
+        ports:
+        - containerPort: 80
